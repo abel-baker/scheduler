@@ -23,16 +23,34 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container">
+    <div class="container gap-0">
       <!-- Timeblocks go here -->
       <div class="row">
         
         <div class="input-group">
-          <label for="nth-hour-textarea" class="input-group-text">Date</label>
-          <textarea id="nth-hour-textarea" class="form-control" aria-label="Hour 12 content"></textarea>
+          <label for="nth-hour-textarea" class="input-group-text col-1">Date</label>
+          <textarea id="nth-hour-textarea" class="form-control border border-primary bg-primary opacity-25" aria-label="Hour 12 content"></textarea>
           <button class="btn btn-secondary" type="button"><i class="bi-bookmark"></i><span class="sr-only">Save icon</span></button>
         </div>
-
+        
+      </div>
+      <div class="row">
+        
+        <div class="input-group">
+          <label for="2th-hour-textarea" class="input-group-text col-1">08:00</label>
+          <textarea id="2th-hour-textarea" class="form-control bg-light" aria-label="Hour 12 content"></textarea>
+          <button type="button" class="btn btn-secondary" id="button-save-2th"><i class="bi-bookmark"></i><span class="sr-only">Save icon</span></button>
+        </div>
+        
+      </div>
+      <div class="row">
+        
+        <div class="input-group">
+          <label for="3th-hour-textarea" class="input-group-text col-1">10:00</label>
+          <textarea id="3th-hour-textarea" class="form-control" aria-label="Hour 12 content"></textarea>
+          <button class="btn btn-secondary" type="button" id="button-save-3th"><i class="bi-bookmark-fill"></i><span class="sr-only">Save icon</span></button>
+        </div>
+        
       </div>
     </div>
 
