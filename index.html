@@ -27,17 +27,21 @@
       <!-- Timeblocks go here -->
       <div class="row">
         
-        <div class="input-group">
+        <div class="input-group primary">
           <label for="nth-hour-textarea" class="input-group-text col-1">Date</label>
-          <textarea id="nth-hour-textarea" class="form-control border border-primary bg-primary opacity-25" aria-label="Hour 12 content"></textarea>
-          <button class="btn btn-secondary" type="button"><i class="bi-bookmark"></i><span class="sr-only">Save icon</span></button>
+          <textarea id="nth-hour-textarea" class="form-control border border-primary" aria-label="Hour 12 content"></textarea>
+          <div class="btn-group-vertical flex-grow-0">
+            <button class="btn btn-secondary" style="border-top-left-radius: 0 !important"  type="button"><i class="bi-bookmark-fill"></i><span class="sr-only">Save icon</span></button>  
+            <button class="btn btn-secondary" style="border-bottom-left-radius: 0 !important" type="button"><i class="bi-x"></i><span class="sr-only">Save icon</span></button>
+          </div>
+          
         </div>
         
       </div>
       <div class="row">
         
         <div class="input-group">
-          <label for="2th-hour-textarea" class="input-group-text col-1">08:00</label>
+          <label for="2th-hour-textarea" class="input-group-text col-1 text">08:00</label>
           <textarea id="2th-hour-textarea" class="form-control bg-light" aria-label="Hour 12 content"></textarea>
           <button type="button" class="btn btn-secondary" id="button-save-2th"><i class="bi-bookmark"></i><span class="sr-only">Save icon</span></button>
         </div>
