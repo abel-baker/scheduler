@@ -1,35 +1,35 @@
-$('#currentDay').text(moment().format('dddd, MMMM Do'));
-
-$('#2th-hour-textarea').val(localStorage.getItem('2th'));
-
-$('#button-save-3th > i').removeClass();
-$('#button-save-3th > i').addClass('bi-square');
-
-$('#button-save-2th').on('click', function() {
-    console.log('2th button clicked');
-    localStorage.setItem('2th', $('#2th-hour-textarea').val());
-})
-$('#button-save-3th').on('click', function() {
-    console.log('3th button clicked');
-    $('#3th-hour-textarea').val(localStorage.getItem('2th'));
-})
+$('#currentDay').text(luxon.DateTime.now().toLocaleString(luxon.DateTime.DATE_HUGE));
 
 const workdayStart = 8;
-const workdayEnd = 22;
+const workdayEnd = 18;
+
+const now = luxon.DateTime.now();
 
 for (let hr = workdayStart; hr < workdayEnd + 1; hr++) {
     let rowEl = $(`<div class="row" id="row-${hr}th"><div class="input-group" id="group-${hr}th"></div></div>`);
     $('.container').append(rowEl);
 
-    let labelClasses = "input-group-text col-2";
-    let textareaClasses = "form-control bg-light";
-    let buttonClasses = "btn btn-secondary";
+    let labelClasses = "input-group-text";
+    let textareaClasses = "form-control";
+    let buttonClasses = "btn btn-secondary btn-lg";
+
+    let luxHr = luxon.DateTime.fromObject({hour: hr});
+    let luxString = luxHr.toLocaleString(luxon.DateTime.TIME_24_SIMPLE);
+    let luxHelpText = luxHr.toLocaleString(luxon.DateTime.DATETIME_SHORT);
+
+    if (now.hour === hr) {
+      textareaClasses += " present";
+    } else if (now.hour < hr) {
+      textareaClasses += " future";
+    } else {
+      textareaClasses += " past";
+    }
 
     let saveIcon = "bi-bookmark";
     let saveButtonValue = `<i class="${saveIcon}"></i><span class="sr-only">Save icon</span>`;
 
     $(`#group-${hr}th`).append(`
-        <label for="textarea-${hr}th" class="${labelClasses}">${hr}:00</label>
+        <label for="textarea-${hr}th" class="${labelClasses}" title="${luxHelpText}">${luxString}</label>
         <textarea id="textarea-${hr}th" class="${textareaClasses}" aria-label="Hour ${hr} content"></textarea>
         <button type="button" class="${buttonClasses}" id="button-save-${hr}th">${saveButtonValue}</button>
     `);
@@ -99,6 +99,17 @@ function handleSaveButton(hr) {
     if (!$.trim( $(`#textarea-${hr}th`).val() )) {
       if (!localStorage.getItem(`${hr}`)) {
         console.log(`${hr}th row is empty; not storing value`);
+
+        // Give a little x for not-saved feedback
+        $(`#button-save-${hr}th > i`).removeClass();
+        $(`#button-save-${hr}th > i`).addClass('bi-bookmark-x');
+
+        setTimeout(function() {
+          // Clear the x after a tiny bit
+          $(`#button-save-${hr}th > i`).removeClass();
+          $(`#button-save-${hr}th > i`).addClass('bi-bookmark');
+        }, 1500)
+
         return;
 
       }
