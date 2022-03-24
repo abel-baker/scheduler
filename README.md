@@ -1,46 +1,17 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Workday Scheduler
 
-Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+A simple day-planner application using localStorage to save your hour-by-hour text entries.  Designed with [Bootstrap](https://getbootstrap.com/) and using [Bootstrap Icons](https://icons.getbootstrap.com/).  Dynamic DOM manipulation powered by jQuery.  DateTime functionality provided by [Luxon](https://moment.github.io/luxon/).
 
-The starter code uses the [Moment.js](https://momentjs.com/) library to work with date and time, but you're free to use a different JavaScript solution to handle this functionality because Moment.js is considered a "legacy" product. Learn more about these other solutions in the [Moment.js project status page.](https://momentjs.com/docs/#/-project-status/).
+[Workday Scheduler](https://abel-baker.github.io/scheduler/) by abel-baker
 
-## User Story
+## Features
 
-```
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+Plan your day with hourly entries for the entire workday.  Type in your custom calendar event and click the bookmark icon to save.  Your events will be saved between browser sessions so you don't have to worry about losing your data.
 
-## Acceptance Criteria
+Keep track of where you are along in the workday with time-based highlighting of the current hour and past & future hours.
 
-```
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+Dynamic save icons provide feedback about the saved state of your entries.
 
-The following animation demonstrates the application functionality:
+## Image
 
-![Work Day Scheduler app with color-coded time slots shows a new event being typed in the 5PM slot.](./Assets/05-third-party-apis-homework-demo.gif)
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
----
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+<img width="457" alt="Capture" src="https://user-images.githubusercontent.com/2822827/159963648-69f94aea-8cdf-400e-aa64-79ed06bf5e97.PNG">
